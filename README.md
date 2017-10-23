@@ -1,5 +1,7 @@
 # SWT2 2017/18 - Introductory Exercise
 
+![Travis Badge](https://travis-ci.org/hpi-swt2-exercise/rails-exercise-17-jakob-edding.svg?branch=master)
+
 We prepared an application skeleton for you that has a failing test case.
 
 To pass the exercise, follow these steps:
