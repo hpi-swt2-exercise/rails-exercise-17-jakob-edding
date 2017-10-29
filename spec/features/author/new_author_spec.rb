@@ -14,4 +14,12 @@ describe "New author page", type: :feature do
    expect(page).to have_field('Homepage')
  end
 
+ it "should let user add new author" do
+     visit new_author_path
+     fill_in "author_first_name", :with => "Alan"
+     fill_in "author_last_name", :with => "Turing"
+     fill_in "author_homepage", :with => "http://wikipedia.de/Alan_Turing"
+     find('input[type="submit"]').click
+ end
+
 end
