@@ -12,6 +12,10 @@ describe "Author model", type: :model do
          expect(author.last_name).to eq('Turing')
          expect(author.name).to eq('Alan Turing')
          expect(author.homepage).to eq('turing.com')
-     end
+    end
 
+    it "should not be allowed to have an empty last name" do
+        author = Author.create(first_name: "Alan", last_name: nil, homepage: "asdf.com")
+        expect(author.valid?).to eq(false)
+    end
 end
