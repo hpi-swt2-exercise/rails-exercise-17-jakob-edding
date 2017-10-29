@@ -22,4 +22,14 @@ describe "New author page", type: :feature do
      find('input[type="submit"]').click
  end
 
+ it "should not let user add new author without last name" do
+     visit new_author_path
+     fill_in "author_first_name", :with => "Alan"
+     fill_in "author_last_name", :with => nil
+     fill_in "author_homepage", :with => "http://wikipedia.de/Alan_Turing"
+     find('input[type="submit"]').click
+
+     expect(page).to have_content('Last name can\'t be blank')
+ end
+
 end
