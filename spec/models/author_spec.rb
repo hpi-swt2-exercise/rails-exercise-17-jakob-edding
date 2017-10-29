@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Author model", type: :model do
 
-    it "Should have properties first name, last name, homepage" do
+    it "should have properties first name, last name, homepage" do
          author = Author.new({
              "first_name"=>"Alan",
              "last_name"=>"Turing",
