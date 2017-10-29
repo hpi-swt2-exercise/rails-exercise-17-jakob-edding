@@ -11,6 +11,11 @@ describe "Author index page", type: :feature do
         expect(find('th:first-child')).to have_content('Name')
     end
 
+    it "should have a link to add a new author" do
+        visit authors_path
+        expect(find('a')).to have_content("Add author")
+    end
+
     it "should show author Alan Turing after he's been entered" do
         visit new_author_path
         fill_in "author_first_name", :with => "Alan"
