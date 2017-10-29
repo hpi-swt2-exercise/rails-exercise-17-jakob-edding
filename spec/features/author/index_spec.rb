@@ -8,21 +8,22 @@ describe "Author index page", type: :feature do
 
     it "should have a column titled 'Name'" do
         visit authors_path
-        expect(find('th:first-child')).to have_content('Name')
+        expect(page).to have_css('th', :text => "Name")
     end
 
     it "should have a link to add a new author" do
         visit authors_path
-        expect(find('a')).to have_content("Add author")
+        expect(page).to have_css('a', :text => "Add author")
+    end
+
+    it "should have a link to the author's page with text 'show'" do
+        author = FactoryGirl.create :author
+        visit authors_path
+        expect(page).to have_css('a', :text => "Show")
     end
 
     it "should show author Alan Turing after he's been entered" do
-        visit new_author_path
-        fill_in "author_first_name", :with => "Alan"
-        fill_in "author_last_name", :with => "Turing"
-        fill_in "author_homepage", :with => "http://wikipedia.de/Alan_Turing"
-        find('input[type="submit"]').click
-
+        FactoryGirl.create :author
         visit authors_path
         expect(page).to have_content('Alan Turing')
     end
