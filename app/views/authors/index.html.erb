@@ -16,6 +16,9 @@
             <th><%= @author.first_name %></th>
             <th><%= @author.last_name %></th>
             <th><%= @author.homepage %></th>
+            <th>
+                <a href="authors/<%= @author[:id] %>">Show</a>
+            </th>
         </tr>
     <% end %>
 </table>
