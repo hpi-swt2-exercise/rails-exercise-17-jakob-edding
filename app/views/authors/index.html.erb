@@ -1,1 +1,23 @@
-<h1>Soon, all the authors from the database will be displayed here</h1>
+<h1>Overview of all authors</h1>
+<% for @author in @authors %>
+    <br>
+    <p>
+        <strong>Full name:</strong>
+        <%= @author.name %>
+    </p>
+    <p>
+        <strong>First name:</strong>
+        <%= @author.first_name %>
+    </p>
+
+    <p>
+        <strong>Last name:</strong>
+        <%= @author.last_name %>
+    </p>
+
+    <p>
+        <strong>Homepage:</strong>
+        <%= @author.homepage %>
+    </p>
+    <br>
+<% end %>

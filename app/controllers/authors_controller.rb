@@ -7,6 +7,7 @@ class AuthorsController < ApplicationController
     end
 
     def index
+        @authors = Author.all()
     end
 
     def new
