@@ -1,23 +1,18 @@
 <h1>Overview of all authors</h1>
-<% for @author in @authors %>
-    <br>
-    <p>
-        <strong>Full name:</strong>
-        <%= @author.name %>
-    </p>
-    <p>
-        <strong>First name:</strong>
-        <%= @author.first_name %>
-    </p>
 
-    <p>
-        <strong>Last name:</strong>
-        <%= @author.last_name %>
-    </p>
-
-    <p>
-        <strong>Homepage:</strong>
-        <%= @author.homepage %>
-    </p>
-    <br>
-<% end %>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Homepage</th>
+    </tr>
+    <% for @author in @authors %>
+        <tr>
+            <th><%= @author.name %></th>
+            <th><%= @author.first_name %></th>
+            <th><%= @author.last_name %></th>
+            <th><%= @author.homepage %></th>
+        </tr>
+    <% end %>
+</table>
