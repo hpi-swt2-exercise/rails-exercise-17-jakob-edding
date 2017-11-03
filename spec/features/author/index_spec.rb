@@ -28,6 +28,12 @@ describe "Author index page", type: :feature do
         expect(page).to have_css('a', :text => "Edit")
     end
 
+    it "should have a link to destroy an existing author" do
+        author = FactoryGirl.create :author
+        visit authors_path
+        expect(page).to have_css('a', :text => "Destroy")
+    end
+
     it "should show author Alan Turing after he's been entered" do
         FactoryGirl.create :author
         visit authors_path
