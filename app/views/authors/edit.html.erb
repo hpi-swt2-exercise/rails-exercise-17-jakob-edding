@@ -7,7 +7,7 @@
     <% @author.errors.clear %>
 <% end %>
 
-<%= form_for :author, url: authors_path do |f| %>
+<%= form_for :author, url: author_path, :method => :PUT do |f| %>
     <p>
         <%= f.label :first_name %><br>
         <%= f.text_field :first_name %>
