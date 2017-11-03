@@ -1,6 +1,6 @@
 <h1>Overview of all authors</h1>
 
-<a href='authors/new'>Add author</a>
+<%= link_to "Add author", new_author_path %>
 <br>
 
 <table>
@@ -17,7 +17,7 @@
             <th><%= @author.last_name %></th>
             <th><%= @author.homepage %></th>
             <th>
-                <a href="authors/<%= @author[:id] %>">Show</a>
+              <%= link_to "Show", author_path(@author) %>
             </th>
         </tr>
     <% end %>
