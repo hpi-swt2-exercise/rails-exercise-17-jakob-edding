@@ -1,1 +1,26 @@
-<h1>Here, you can soon edit information on author <%= @author.name %></h1>
+<h1>Edit Author <%= @author.name %></h1>
+
+<% if @author && @author.errors.any? %>
+    <strong style="color: red">
+        <%= @author.errors.full_messages.first %>
+    </strong>
+    <% @author.errors.clear %>
+<% end %>
+
+<%= form_for :author, url: authors_path do |f| %>
+    <p>
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name %>
+    </p>
+    <p>
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name %>
+    </p>
+    <p>
+        <%= f.label :homepage %><br>
+        <%= f.text_field :homepage %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
