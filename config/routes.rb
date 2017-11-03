@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :papers
   get 'authors/edit'
 
   # get 'authors/new'
