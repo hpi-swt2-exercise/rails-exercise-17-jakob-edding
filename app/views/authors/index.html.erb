@@ -22,6 +22,12 @@
             <th>
               <%= link_to "Edit", edit_author_path(@author) %>
             </th>
+            <th>
+              <%= link_to "Destroy",
+                author_path(@author),
+                method: :delete,
+                data: {:confirm => "Are you sure?" } %>
+            </th>
         </tr>
     <% end %>
 </table>
