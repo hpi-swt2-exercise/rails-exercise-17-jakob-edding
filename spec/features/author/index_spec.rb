@@ -6,6 +6,11 @@ describe "Author index page", type: :feature do
         visit authors_path
     end
 
+    it "should have a link to the root page" do
+        visit authors_path
+        expect(page).to have_css('a', :text => "Back")
+    end
+
     it "should have a column titled 'Name'" do
         visit authors_path
         expect(page).to have_css('th', :text => "Name")
