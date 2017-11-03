@@ -32,4 +32,13 @@ describe "Edit author page", type: :feature do
     expect(page).to have_content('Last name can\'t be blank')
   end
 
+  it "should persist changes to author attributes" do
+    @alan = FactoryGirl.create :author
+    visit edit_author_path(@alan)
+    fill_in "author_first_name", :with => "Alan Mathison"
+    find('input[type="submit"]').click
+    visit author_path(@alan)
+    expect(page).to have_content('Alan Mathison')
+  end
+
 end
