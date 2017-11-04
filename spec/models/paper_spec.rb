@@ -22,4 +22,9 @@ RSpec.describe Paper, type: :model do
     @paper = Paper.create(title: "something", venue: "someplace", year: "nineteen-fifty")
     expect(@paper.valid?).to eq(false)
   end
+
+  it "should have a list of authors" do
+    @paper = Paper.create(title: "something", venue: "someplace", year: 1990)
+    expect(@paper).to respond_to(:authors)
+  end
 end
