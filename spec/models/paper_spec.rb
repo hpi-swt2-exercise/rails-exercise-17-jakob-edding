@@ -17,4 +17,9 @@ RSpec.describe Paper, type: :model do
     @paper = Paper.create(title: "something", venue: "someplace", year: nil)
     expect(@paper.valid?).to eq(false)
   end
+
+  it "should not be allowed to enter alphanumerics only for year" do
+    @paper = Paper.create(title: "something", venue: "someplace", year: "nineteen-fifty")
+    expect(@paper.valid?).to eq(false)
+  end
 end
