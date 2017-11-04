@@ -7,4 +7,9 @@ RSpec.describe Paper, type: :model do
     @paper = Paper.create(title: nil, venue: "Someplace", year: 9000)
     expect(@paper.valid?).to eq(false)
   end
+
+  it "should not be allowed to have an empty venue" do
+    @paper = Paper.create(title: "something", venue: nil, year: 9000)
+    expect(@paper.valid?).to eq(false)
+  end
 end
