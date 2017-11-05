@@ -30,4 +30,17 @@ describe "Edit paper page", type: :feature do
     expect(page).to have_select("Author 1", selected: @alan.name)
   end
 
+  it "should substitute an existing author with a new author" do
+    @alan = FactoryGirl.create :author
+    @paper = FactoryGirl.create :paper, authors: [@alan]
+
+    @plagiarist = FactoryGirl.create :author, first_name: 'Peter', last_name: 'Plagiarist'
+
+    visit edit_paper_path(@paper)
+    page.select @plagiarist.name, :from => 'paper_author_id_1'
+    find('input[type="submit"]').click
+
+    expect(page).to have_no_content(@alan.name)
+  end
+
 end
