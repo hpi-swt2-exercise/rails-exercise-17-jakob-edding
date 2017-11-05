@@ -22,4 +22,12 @@ describe "Edit paper page", type: :feature do
     expect(page).to have_content(@plagiarist.name)
   end
 
+  it "should preselect the current single author of the paper" do
+    @alan = FactoryGirl.create :author
+    @paper = FactoryGirl.create :paper, authors: [@alan]
+
+    visit edit_paper_path(@paper)
+    expect(page).to have_select("Author 1", selected: @alan.name)
+  end
+
 end
